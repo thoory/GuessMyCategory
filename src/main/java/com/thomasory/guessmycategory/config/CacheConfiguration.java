@@ -40,6 +40,33 @@ public class CacheConfiguration {
             createCache(cm, com.thomasory.guessmycategory.domain.User.class.getName());
             createCache(cm, com.thomasory.guessmycategory.domain.Authority.class.getName());
             createCache(cm, com.thomasory.guessmycategory.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.thomasory.guessmycategory.domain.Video.class.getName());
+            createCache(cm, com.thomasory.guessmycategory.domain.Video.class.getName() + ".actors");
+            createCache(cm, com.thomasory.guessmycategory.domain.Video.class.getName() + ".keywords");
+            createCache(cm, com.thomasory.guessmycategory.domain.Video.class.getName() + ".tags");
+            createCache(cm, com.thomasory.guessmycategory.domain.Actor.class.getName());
+            createCache(cm, com.thomasory.guessmycategory.domain.Actor.class.getName() + ".sessions");
+            createCache(cm, com.thomasory.guessmycategory.domain.Actor.class.getName() + ".answers");
+            createCache(cm, com.thomasory.guessmycategory.domain.Actor.class.getName() + ".videos");
+            createCache(cm, com.thomasory.guessmycategory.domain.OptionalImage.class.getName());
+            createCache(cm, com.thomasory.guessmycategory.domain.OptionalImage.class.getName() + ".sessions");
+            createCache(cm, com.thomasory.guessmycategory.domain.OptionalImage.class.getName() + ".answers");
+            createCache(cm, com.thomasory.guessmycategory.domain.Keyword.class.getName());
+            createCache(cm, com.thomasory.guessmycategory.domain.Keyword.class.getName() + ".sessions");
+            createCache(cm, com.thomasory.guessmycategory.domain.Keyword.class.getName() + ".answers");
+            createCache(cm, com.thomasory.guessmycategory.domain.Keyword.class.getName() + ".videos");
+            createCache(cm, com.thomasory.guessmycategory.domain.Tag.class.getName());
+            createCache(cm, com.thomasory.guessmycategory.domain.Tag.class.getName() + ".sessions");
+            createCache(cm, com.thomasory.guessmycategory.domain.Tag.class.getName() + ".answers");
+            createCache(cm, com.thomasory.guessmycategory.domain.Tag.class.getName() + ".videos");
+            createCache(cm, com.thomasory.guessmycategory.domain.Party.class.getName());
+            createCache(cm, com.thomasory.guessmycategory.domain.Player.class.getName());
+            createCache(cm, com.thomasory.guessmycategory.domain.Player.class.getName() + ".sessions");
+            createCache(cm, com.thomasory.guessmycategory.domain.Score.class.getName());
+            createCache(cm, com.thomasory.guessmycategory.domain.Answer.class.getName());
+            createCache(cm, com.thomasory.guessmycategory.domain.Answer.class.getName() + ".sessions");
+            createCache(cm, com.thomasory.guessmycategory.domain.Session.class.getName());
+            createCache(cm, com.thomasory.guessmycategory.domain.Session.class.getName() + ".players");
             // jhipster-needle-ehcache-add-entry
         };
     }

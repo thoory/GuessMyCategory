@@ -1,0 +1,67 @@
+{
+    "name": "Answer",
+    "fields": [
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "player",
+            "otherEntityRelationshipName": "answer",
+            "relationshipName": "player",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "session",
+            "otherEntityRelationshipName": "answers",
+            "relationshipName": "session"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "keyword",
+            "otherEntityRelationshipName": "answer",
+            "relationshipName": "keywords",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tag",
+            "otherEntityRelationshipName": "answer",
+            "relationshipName": "tags",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "optionalImage",
+            "otherEntityRelationshipName": "answer",
+            "relationshipName": "optionalImages",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "actor",
+            "otherEntityRelationshipName": "answer",
+            "relationshipName": "actors",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200408183900",
+    "entityTableName": "answer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

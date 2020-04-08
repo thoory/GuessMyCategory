@@ -1,0 +1,47 @@
+{
+    "name": "Party",
+    "fields": [
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "maxPlayer",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maxVideoTime",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "session",
+            "otherEntityRelationshipName": "party",
+            "relationshipName": "sessions",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200408183600",
+    "entityTableName": "party",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
