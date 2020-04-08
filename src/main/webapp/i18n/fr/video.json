@@ -1,0 +1,32 @@
+{
+  "guessMyCategoryApp": {
+    "video": {
+      "home": {
+        "title": "Videos",
+        "createLabel": "Créer un nouveau Video",
+        "createOrEditLabel": "Créer ou éditer un Video",
+        "notFound": "Aucun Video trouvé"
+      },
+      "created": "Un nouveau Video a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Video avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Video avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Video {{ id }} ?"
+      },
+      "detail": {
+        "title": "Video"
+      },
+      "iframe": "Iframe",
+      "title": "Title",
+      "duration": "Duration",
+      "view": "View",
+      "like": "Like",
+      "dislike": "Dislike",
+      "dateCreated": "Date Created",
+      "optionalImages": "Optional Images",
+      "actors": "Actors",
+      "keywords": "Keywords",
+      "tags": "Tags"
+    }
+  }
+}

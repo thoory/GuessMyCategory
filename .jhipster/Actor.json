@@ -1,0 +1,64 @@
+{
+    "name": "Actor",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "popularity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "contry",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "link",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "session",
+            "otherEntityRelationshipName": "actors",
+            "relationshipName": "session"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "answer",
+            "otherEntityRelationshipName": "actors",
+            "relationshipName": "answer"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "optionalImage",
+            "otherEntityRelationshipName": "actor",
+            "relationshipName": "images",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "video",
+            "otherEntityRelationshipName": "actors",
+            "relationshipName": "videos",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200408183200",
+    "entityTableName": "actor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

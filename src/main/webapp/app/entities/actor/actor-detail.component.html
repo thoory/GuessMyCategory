@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="actor">
+            <h2><span jhiTranslate="guessMyCategoryApp.actor.detail.title">Actor</span> {{ actor.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="guessMyCategoryApp.actor.name">Name</span></dt>
+                <dd>
+                    <span>{{ actor.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="guessMyCategoryApp.actor.popularity">Popularity</span></dt>
+                <dd>
+                    <span>{{ actor.popularity }}</span>
+                </dd>
+                <dt><span jhiTranslate="guessMyCategoryApp.actor.contry">Contry</span></dt>
+                <dd>
+                    <span>{{ actor.contry }}</span>
+                </dd>
+                <dt><span jhiTranslate="guessMyCategoryApp.actor.link">Link</span></dt>
+                <dd>
+                    <span>{{ actor.link }}</span>
+                </dd>
+                <dt><span jhiTranslate="guessMyCategoryApp.actor.images">Images</span></dt>
+                <dd>
+                    <div *ngIf="actor.images">
+                        <a [routerLink]="['/optional-image', actor.images?.id, 'view']">{{ actor.images?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/actor', actor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

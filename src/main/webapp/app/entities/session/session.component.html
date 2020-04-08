@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="guessMyCategoryApp.session.home.title">Sessions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-session" [routerLink]="['/session/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="guessMyCategoryApp.session.home.createLabel">
+            Create a new Session
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="sessions?.length === 0">
+        <span jhiTranslate="guessMyCategoryApp.session.home.notFound">No sessions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="sessions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="guessMyCategoryApp.session.dateCreated">Date Created</span></th>
+                    <th scope="col" ><span jhiTranslate="guessMyCategoryApp.session.players">Players</span></th>
+                    <th scope="col" ><span jhiTranslate="guessMyCategoryApp.session.keywords">Keywords</span></th>
+                    <th scope="col" ><span jhiTranslate="guessMyCategoryApp.session.tags">Tags</span></th>
+                    <th scope="col" ><span jhiTranslate="guessMyCategoryApp.session.optionalImages">Optional Images</span></th>
+                    <th scope="col" ><span jhiTranslate="guessMyCategoryApp.session.actors">Actors</span></th>
+                    <th scope="col" ><span jhiTranslate="guessMyCategoryApp.session.answers">Answers</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let session of sessions ;trackBy: trackId">
+                    <td><a [routerLink]="['/session', session.id, 'view']">{{ session.id }}</a></td>
+                    <td>{{ session.dateCreated | date:'mediumDate' }}</td>
+                    <td>
+                        <span *ngFor="let players of session.players; let last = last">
+                            <a class="form-control-static" [routerLink]="['/player', players?.id, 'view']">{{ players.id }}</a>{{ last ? '' : ', ' }}
+                        </span>
+                    </td>
+                    <td>
+                        <div *ngIf="session.keywords">
+                            <a [routerLink]="['/keyword', session.keywords?.id, 'view']" >{{ session.keywords?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="session.tags">
+                            <a [routerLink]="['/tag', session.tags?.id, 'view']" >{{ session.tags?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="session.optionalImages">
+                            <a [routerLink]="['/optional-image', session.optionalImages?.id, 'view']" >{{ session.optionalImages?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="session.actors">
+                            <a [routerLink]="['/actor', session.actors?.id, 'view']" >{{ session.actors?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="session.answers">
+                            <a [routerLink]="['/answer', session.answers?.id, 'view']" >{{ session.answers?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/session', session.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/session', session.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(session)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
