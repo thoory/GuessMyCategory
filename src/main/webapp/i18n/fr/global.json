@@ -7,6 +7,15 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "video": "Video",
+        "actor": "Actor",
+        "optionalImage": "Optional Image",
+        "keyword": "Keyword",
+        "tag": "Tag",
+        "game": "Game",
+        "score": "Score",
+        "answer": "Answer",
+        "session": "Session",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

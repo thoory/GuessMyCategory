@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="guessMyCategoryApp.session.home.title">Sessions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-session" [routerLink]="['/session/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="guessMyCategoryApp.session.home.createLabel">
+            Create a new Session
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="sessions?.length === 0">
+        <span jhiTranslate="guessMyCategoryApp.session.home.notFound">No sessions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="sessions?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="guessMyCategoryApp.session.dateCreated">Date Created</span></th>
+                    <th scope="col" ><span jhiTranslate="guessMyCategoryApp.session.maxAnswer">Max Answer</span></th>
+                    <th scope="col" ><span jhiTranslate="guessMyCategoryApp.session.maxTime">Max Time</span></th>
+                    <th scope="col" ><span jhiTranslate="guessMyCategoryApp.session.video">Video</span></th>
+                    <th scope="col" ><span jhiTranslate="guessMyCategoryApp.session.games">Games</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let session of sessions ;trackBy: trackId">
+                    <td><a [routerLink]="['/session', session.id, 'view']">{{ session.id }}</a></td>
+                    <td>{{ session.dateCreated | date:'mediumDate' }}</td>
+                    <td>{{ session.maxAnswer }}</td>
+                    <td>{{ session.maxTime }}</td>
+                    <td>
+                        <div *ngIf="session.video">
+                            <a [routerLink]="['/video', session.video?.id, 'view']" >{{ session.video?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="session.games">
+                            <a [routerLink]="['/game', session.games?.id, 'view']" >{{ session.games?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/session', session.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/session', session.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(session)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

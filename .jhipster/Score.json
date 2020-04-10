@@ -1,0 +1,58 @@
+{
+    "name": "Score",
+    "fields": [
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "answerTimeAvg",
+            "fieldType": "Duration"
+        },
+        {
+            "fieldName": "correctAnswer",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "propositionTotal",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "score",
+            "relationshipName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "answer",
+            "otherEntityRelationshipName": "score",
+            "relationshipName": "answers"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "session",
+            "otherEntityRelationshipName": "scores",
+            "relationshipName": "session",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200410125700",
+    "entityTableName": "score",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

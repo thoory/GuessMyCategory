@@ -1,0 +1,54 @@
+{
+    "name": "Session",
+    "fields": [
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "maxAnswer",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "maxTime",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "video",
+            "otherEntityRelationshipName": "session",
+            "relationshipName": "video",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "score",
+            "otherEntityRelationshipName": "session",
+            "relationshipName": "scores"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "game",
+            "otherEntityRelationshipName": "session",
+            "relationshipName": "games",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200410125900",
+    "entityTableName": "session",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

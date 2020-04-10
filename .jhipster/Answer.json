@@ -1,0 +1,36 @@
+{
+    "name": "Answer",
+    "fields": [
+        {
+            "fieldName": "dateCreated",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "time",
+            "fieldType": "Duration"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "score",
+            "otherEntityRelationshipName": "answers",
+            "relationshipName": "score",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200410125800",
+    "entityTableName": "answer",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

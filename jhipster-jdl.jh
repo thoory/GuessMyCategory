@@ -1,0 +1,77 @@
+entity Video {
+	id Integer required,
+    dateCreated LocalDate required,
+	iframe String required,
+    title String required,
+    duration Duration required,
+    view Integer,
+    like Integer,
+    dislike Integer
+}
+
+entity Actor {
+    name String required
+    popularity Integer,
+    contry String,
+    link String,
+}
+
+entity OptionalImage {
+    link String required
+}
+
+entity Keyword {
+    keyword String required
+}
+
+entity Tag {
+    tag String required
+}
+
+entity Game {
+	dateCreated LocalDate required,
+	code String required,
+    maxUser Integer,
+    maxVideoTime Integer
+}
+
+entity Score {
+	id Integer required,
+    dateCreated LocalDate required,
+    answerTimeAvg Duration,
+    correctAnswer Integer,
+    propositionTotal Integer
+}
+
+entity Answer {
+	dateCreated LocalDate required,
+    time Duration,
+}
+
+entity Session {
+	dateCreated LocalDate required,
+    maxAnswer Integer,
+    maxTime Integer,
+}
+relationship OneToOne {
+	Score{user} to User,
+    Session{video} to Video
+}
+
+relationship ManyToOne {
+    Video{optionalImages} to OptionalImage,
+	Actor{images} to OptionalImage
+}
+
+relationship OneToMany {
+    Game to User{games},
+    Game to Session{games},
+    Session{scores} to Score,
+    Score{answers} to Answer,
+}
+
+relationship ManyToMany {
+	Video{actors} to Actor{videos},
+    Video{keywords} to Keyword{videos},
+    Video{tags} to Tag{videos},
+}

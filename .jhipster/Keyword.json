@@ -1,0 +1,33 @@
+{
+    "name": "Keyword",
+    "fields": [
+        {
+            "fieldName": "keyword",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "video",
+            "otherEntityRelationshipName": "keywords",
+            "relationshipName": "videos",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200410125400",
+    "entityTableName": "keyword",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
